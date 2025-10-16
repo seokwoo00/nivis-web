@@ -7,6 +7,7 @@ const server = app.listen(80, ()=>{
     console.log("server start!");
 })
 
-app.get('/', async(requestAnimationFrame, res)=>{
-    res.send("hello world");
+app.get('/', async (req, res) => { 
+    var filePath = path.join(__dirname, 'html', 'main.html');
+    res.sendFile(filePath);
 })
