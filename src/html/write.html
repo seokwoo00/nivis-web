@@ -1,0 +1,63 @@
+<!-- write.html -->
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>NIVIS — 글 작성</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <header class="nv-header">
+    <div class="nv-container nv-header__inner">
+      <a class="nv-logo" href="index.html">NIVIS</a>
+      <nav class="nv-nav" aria-label="주 메뉴">
+        <a class="nv-nav__item" href="/">홈</a>
+        <a class="nv-nav__item" href="#">자료실</a>
+        <a class="nv-nav__item is-active" href="/write">작성하기</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="nv-container nv-main">
+    <h1 class="nv-page-title">글 작성</h1>
+
+    <form class="nv-form" action="#" method="post" enctype="multipart/form-data">
+      <div class="nv-field">
+        <label for="title">제목</label>
+        <input id="title" name="title" type="text" placeholder="제목을 입력하세요" required />
+      </div>
+
+      <div class="nv-field">
+        <label for="content">내용</label>
+        <textarea id="content" name="content" rows="10" placeholder="내용을 입력하세요" required></textarea>
+      </div>
+
+      <div class="nv-field">
+        <label for="files">파일 업로드</label>
+        <input id="files" name="files" type="file" multiple />
+        <p class="nv-help">문서, 압축 파일 등 여러 개 선택 가능</p>
+      </div>
+
+      <div class="nv-field">
+        <label for="images">이미지 업로드</label>
+        <input id="images" name="images" type="file" accept="image/*" multiple />
+        <p class="nv-help">PNG, JPG, GIF</p>
+      </div>
+
+      <div class="nv-form__actions">
+        <a class="nv-btn nv-btn--ghost" href="index.html">취소</a>
+        <button class="nv-btn" type="submit">등록</button>
+      </div>
+    </form>
+  </main>
+
+  <footer class="nv-footer">
+    <div class="nv-container">
+      <small>© 2025 NIVIS</small>
+    </div>
+  </footer>
+</body>
+</html>
