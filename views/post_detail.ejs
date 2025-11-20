@@ -1,0 +1,112 @@
+<section class="nv-post-detail">
+  <header class="nv-post-detail-header">
+    <div class="nv-post-header-row nv-post-header-row-detail">
+      <span class="nv-post-badge <%= post.categoryClass %>"><%= post.categoryLabel %></span>
+      <h1 class="nv-page-title"><%= post.title %></h1>
+    </div>
+    <p class="nv-post-meta">
+      <span><%= post.authorNickname %></span>
+      <span><%= post.createdAtFormatted %></span>
+    </p>
+  </header>
+
+  <article class="nv-post-body">
+    <p class="nv-post-content"><%- post.content.replace(/\n/g, '<br>') %></p>
+
+    <!-- 업로드된 일반 파일이 이미지인지 판단 -->
+    <% if (post.filePath) { %>
+      <% 
+        const imgExt = ['.png', '.jpg', '.jpeg', '.gif', '.webp'];
+        const fileExt = post.filePath.toLowerCase().slice(post.filePath.lastIndexOf('.'));
+        const isImageFile = imgExt.includes(fileExt);
+      %>
+
+      <% if (isImageFile) { %>
+        <!-- 첨부 파일이 이미지라면 본문에 이미지 표시 -->
+        <div class="nv-image-wrap" style="margin-top: 1rem;">
+          <img src="<%= post.filePath %>" alt="첨부 이미지" style="object-fit: fill;">
+        </div>
+
+      <% } else { %>
+        <!-- 이미지가 아니면 다운로드 링크 표시 -->
+        <div class="nv-attachment">
+          <span>첨부 파일:</span>
+          <a href="<%= post.filePath %>" download>다운로드</a>
+        </div>
+      <% } %>
+    <% } %>
+
+    <!-- 별도의 imagePath가 있을 때 기존 이미지 표시 -->
+    <% if (post.imagePath) { %>
+      <div class="nv-image-wrap" style="margin-top: 1rem;">
+        <img src="<%= post.imagePath %>" alt="첨부 이미지">
+      </div>
+    <% } %>
+  </article>
+</section>
+
+<section class="nv-comments">
+  <h2 class="nv-section-title">댓글</h2>
+
+  <% if (!currentUser) { %>
+    <p class="nv-comment-notice">댓글을 작성하려면 로그인하세요.</p>
+  <% } %>
+
+  <% if (currentUser) { %>
+  <form action="/posts/<%= post.id %>/comments" method="POST" class="nv-form nv-comment-form">
+    <div class="nv-form-group">
+      <textarea name="content" rows="3" placeholder="댓글을 입력하세요" required></textarea>
+    </div>
+    <div class="nv-form-actions">
+      <button type="submit" class="nv-btn nv-btn-primary">댓글 등록</button>
+    </div>
+  </form>
+  <% } %>
+
+  <div class="nv-comment-list">
+    <% if (rootComments.length === 0) { %>
+      <div class="nv-empty">첫 댓글을 남겨보세요.</div>
+    <% } %>
+
+    <% rootComments.forEach(function(comment) { %>
+      <div class="nv-comment">
+        <div class="nv-comment-header">
+          <span class="nv-comment-author"><%= comment.authorNickname %></span>
+          <span class="nv-comment-date"><%= comment.createdAtFormatted %></span>
+        </div>
+        <p class="nv-comment-content"><%= comment.content %></p>
+
+        <% var replies = repliesByParent[String(comment.id)] || []; %>
+        <div class="nv-comment-actions">
+          <% if (currentUser) { %>
+            <details>
+              <summary>답글 달기</summary>
+              <form action="/comments/<%= comment.id %>/replies" method="POST" class="nv-form nv-reply-form">
+                <div class="nv-form-group">
+                  <textarea name="content" rows="2" required></textarea>
+                </div>
+                <div class="nv-form-actions">
+                  <button type="submit" class="nv-btn nv-btn-ghost">등록</button>
+                </div>
+              </form>
+            </details>
+          <% } %>
+        </div>
+
+        <% if (replies.length > 0) { %>
+          <div class="nv-replies">
+            <% replies.forEach(function(reply) { %>
+              <div class="nv-comment nv-comment-reply">
+                <div class="nv-comment-header">
+                  <span class="nv-comment-author"><%= reply.authorNickname %></span>
+                  <span class="nv-comment-date"><%= reply.createdAtFormatted %></span>
+                </div>
+                <p class="nv-comment-content"><%= reply.content %></p>
+              </div>
+            <% }); %>
+          </div>
+        <% } %>
+      </div>
+    <% }); %>
+  </div>
+</section>

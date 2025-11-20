@@ -1,0 +1,36 @@
+<% if (boardTitle) { %>
+  <h1 class="nv-board-title"><%= boardTitle %></h1>
+<% } %>
+
+<% if (currentUser) { %>
+<div class="nv-main-actions">
+  <a href="/posts/new" class="nv-btn nv-btn-primary">새 글 작성</a>
+</div>
+<% } else { %>
+<div class="nv-main-actions nv-main-actions-center">
+  <span>글을 작성하려면 로그인하세요.</span>
+</div>
+<% } %>
+
+<section class="nv-post-list">
+  <% if (posts.length === 0) { %>
+    <div class="nv-empty">아직 작성된 게시글이 없습니다.</div>
+  <% } %>
+  <% posts.forEach(function(post) { %>
+    <article class="nv-post-card">
+      <a href="/posts/<%= post.id %>" class="nv-post-link">
+        <div class="nv-post-header-row">
+          <span class="nv-post-badge <%= post.categoryClass %>"><%= post.categoryLabel %></span>
+          <h2 class="nv-post-title"><%= post.title %></h2>
+        </div>
+        <p class="nv-post-meta">
+          <span><%= post.authorNickname %></span>
+          <span><%= post.createdAtFormatted %></span>
+        </p>
+        <p class="nv-post-excerpt">
+          <%= post.content.length > 120 ? post.content.substring(0, 120) + '...' : post.content %>
+        </p>
+      </a>
+    </article>
+  <% }); %>
+</section>

@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "username": "admin",
+    "passwordHash": "$2b$10$oBAR7D6Y3gZYB5I.JrrTjuNA..85xVKyzPeEU.YZcDRuVp6TsyFii",
+    "nickname": " ㄱㄱㅇ",
+    "createdAt": "2025-11-20T14:56:19.295Z"
+  },
+  {
+    "id": 2,
+    "username": "adminㅇㅇㅇ",
+    "passwordHash": "$2b$10$10c5UVa0MFlN94CDLhSCYekfwlLjkBuPfSie4EM/DoDVXdUEhRjA6",
+    "nickname": "111",
+    "createdAt": "2025-11-20T15:16:23.838Z"
+  }
+]

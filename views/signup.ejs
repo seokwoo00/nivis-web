@@ -1,0 +1,27 @@
+<section class="nv-form-wrapper">
+  <h1 class="nv-page-title">회원가입</h1>
+  <% if (typeof error !== 'undefined' && error) { %>
+    <div class="nv-alert nv-alert-error"><%= error %></div>
+  <% } %>
+  <form action="/auth/signup" method="POST" class="nv-form">
+    <div class="nv-form-group">
+      <label for="username">아이디</span></label>
+      <input type="text" id="username" name="username" required>
+    </div>
+
+    <div class="nv-form-group">
+      <label for="password">비밀번호</label>
+      <input type="password" id="password" name="password" required>
+    </div>
+
+    <div class="nv-form-group">
+      <label for="nickname">닉네임</label>
+      <input type="text" id="nickname" name="nickname" required>
+    </div>
+
+    <div class="nv-form-actions">
+      <a href="/" class="nv-btn nv-btn-ghost">취소</a>
+      <button type="submit" class="nv-btn nv-btn-primary">가입하기</button>
+    </div>
+  </form>
+</section>

@@ -1,0 +1,46 @@
+[
+  {
+    "id": 1,
+    "title": "ㅇㅇ",
+    "content": "ㄷ",
+    "filePath": "/uploads/1763650589794-327802922-_____________2025_09_18_001859.png",
+    "imagePath": null,
+    "authorId": 1,
+    "category": "free",
+    "createdAt": "2025-11-20T14:56:29.796Z",
+    "updatedAt": "2025-11-20T14:56:29.796Z"
+  },
+  {
+    "id": 2,
+    "title": "ㅇㅇㅇㅇㅇㅇ",
+    "content": "ㅇㅈㄷㄹㅈㄷㅁㄹㄷㅈ",
+    "filePath": "/uploads/1763650626772-987920991-_____________2025_10_16_232800.png",
+    "imagePath": null,
+    "authorId": 1,
+    "category": "notice",
+    "createdAt": "2025-11-20T14:57:06.777Z",
+    "updatedAt": "2025-11-20T14:57:06.777Z"
+  },
+  {
+    "id": 3,
+    "title": "ㅇㅁㄴ",
+    "content": "ㅇㅈ",
+    "filePath": "/uploads/1763650637604-509738586-_____________2025_10_16_230613.png",
+    "imagePath": null,
+    "authorId": 1,
+    "category": "archive",
+    "createdAt": "2025-11-20T14:57:17.606Z",
+    "updatedAt": "2025-11-20T14:57:17.606Z"
+  },
+  {
+    "id": 4,
+    "title": "ㅇㅁㄴㅇㅁㄴ",
+    "content": "ㅇㅁㄴㄴㅁㅇㄴㅁㅇㄴㅁㅇ",
+    "filePath": null,
+    "imagePath": "/uploads/1763651793913-922235850-KakaoTalk_20250819_081016121.png",
+    "authorId": 2,
+    "category": "free",
+    "createdAt": "2025-11-20T15:16:33.916Z",
+    "updatedAt": "2025-11-20T15:16:33.916Z"
+  }
+]

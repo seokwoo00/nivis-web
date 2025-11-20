@@ -1,0 +1,38 @@
+<section class="nv-form-wrapper">
+  <h1 class="nv-page-title">새 글 작성</h1>
+  <form action="/posts" method="POST" enctype="multipart/form-data" class="nv-form">
+    <div class="nv-form-group">
+      <label for="title">제목</label>
+      <input type="text" id="title" name="title" required>
+    </div>
+
+    <div class="nv-form-group">
+      <label for="category">게시판</label>
+      <select id="category" name="category" required>
+        <option value="archive">자료실</option>
+        <option value="notice">공지사항</option>
+        <option value="free" selected>자유게시판</option>
+      </select>
+    </div>
+
+    <div class="nv-form-group">
+      <label for="content">내용</label>
+      <textarea id="content" name="content" rows="10" required></textarea>
+    </div>
+
+    <div class="nv-form-group">
+      <label for="file">파일 업로드</label>
+      <input type="file" id="file" name="file" />
+    </div>
+
+    <div class="nv-form-group">
+      <label for="image">이미지 업로드</label>
+      <input type="file" id="image" name="image" accept="image/*" />
+    </div>
+
+    <div class="nv-form-actions">
+      <a href="/" class="nv-btn nv-btn-ghost">취소</a>
+      <button type="submit" class="nv-btn nv-btn-primary">등록</button>
+    </div>
+  </form>
+</section>

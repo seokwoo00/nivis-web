@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "postId": 4,
+    "authorId": 2,
+    "content": "ㅇㅇㅇㅇㅇ",
+    "parentCommentId": null,
+    "createdAt": "2025-11-20T15:16:39.687Z",
+    "updatedAt": "2025-11-20T15:16:39.687Z"
+  },
+  {
+    "id": 2,
+    "postId": 4,
+    "authorId": 2,
+    "content": "ㅇㅇㅁㄴㅇㄴㅁㅇ",
+    "parentCommentId": 1,
+    "createdAt": "2025-11-20T15:16:44.959Z",
+    "updatedAt": "2025-11-20T15:16:44.959Z"
+  }
+]

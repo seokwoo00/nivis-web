@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title><%= title || 'NIVIS' %></title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+<header class="nv-header">
+  <div class="nv-header-inner">
+    <div class="nv-logo">
+      NIVIS
+    </div>
+    <nav class="nv-nav">
+      <a href="/">홈</a>
+      <a href="/board/archive">자료실</a>
+      <a href="/board/notice">공지사항</a>
+      <a href="/board/free">자유게시판</a>
+    </nav>
+    <div class="nv-auth">
+      <% if (currentUser) { %>
+        <span class="nv-nickname"><%= currentUserNickname %>님</span>
+        <form action="/auth/logout" method="POST" class="inline-form">
+          <button type="submit" class="nv-btn nv-btn-ghost">로그아웃</button>
+        </form>
+      <% } else { %>
+        <a href="/auth/login" class="nv-btn nv-btn-ghost">로그인</a>
+        <a href="/auth/signup" class="nv-btn nv-btn-primary">회원가입</a>
+      <% } %>
+    </div>
+  </div>
+</header>
+
+<main class="nv-main">
+  <div class="nv-main-inner">
+    <%- body %>
+  </div>
+</main>
+<div id='wrapper'>
+  <div>
+  </div>
+</div>
+<footer class="nv-footer">
+  <div class="nv-footer-inner">
+    <span>NIVIS board &copy; <%= new Date().getFullYear() %></span>
+  </div>
+</footer>
+</body>
+</html>
