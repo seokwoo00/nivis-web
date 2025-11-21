@@ -1,6 +1,4 @@
-# NIVIS 게시판 (Express + JSON 파일 저장 버전)
-
-MongoDB 없이 JSON 파일로만 데이터를 저장하는 버전입니다.
+# NIVIS 게시판 
 
 ## 기능
 
@@ -25,7 +23,7 @@ MongoDB 없이 JSON 파일로만 데이터를 저장하는 버전입니다.
 
 ### 1. Node.js 설치
 
-Windows 또는 WSL(Ubuntu)에 Node.js LTS 버전을 설치합니다.
+Windows 또는 WSL(Ubuntu)에 Node.js LTS 버전을 설치
 
 ### 2. 의존성 설치
 
@@ -41,16 +39,4 @@ npm run dev   # nodemon이 설치되어 있을 경우
 npm start
 ```
 
-브라우저에서 `http://localhost:3000` 으로 접속합니다.
-
-## 데이터 구조
-
-- `data/users.json`
-  - `[{ id, username, passwordHash, nickname, createdAt }, ...]`
-- `data/posts.json`
-  - `[{ id, title, content, filePath, imagePath, authorId, createdAt, updatedAt }, ...]`
-- `data/comments.json`
-  - `[{ id, postId, authorId, content, parentCommentId, createdAt, updatedAt }, ...]`
-
-각 파일은 요청 시마다 읽고, 변경 시 전체를 다시 쓰는 방식이므로
-개인 프로젝트 / 연습 / CTF 문제용으로 적합합니다.
+브라우저에서 `http://localhost:3000` 으로 접속
